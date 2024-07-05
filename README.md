@@ -2,7 +2,7 @@
 safe module that updates a safe's signers and threshold if the safe has being dormant(not active) for a period of time. dms uses [axiom](axiom.xyz) to safely check offchain when the safe's latest tx occured and triggers a deadman switch by updating the safe onchain based on the result.
 
 ## motivation
-<div style="text-align:center"><img src="assets/asset1.png" height="370" width="500"/></div>
+<div align="center"><img src="assets/asset1.png" height="370" width="520"/></div>
 
 ## installation
 
