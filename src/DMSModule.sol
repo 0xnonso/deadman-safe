@@ -125,7 +125,7 @@ contract DMSModule is Ownable, AxiomV2Client {
 
     /// @notice Update threshold.
     /// @param _threshold The new threshold.
-    function resetThreshold(uint256 _threshold) external {
+    function resetThreshold(uint256 _threshold) external onlyOwner() {
         assembly {
             if iszero(_threshold) {
                 mstore(0x0, 0x53616665205468726573686f6c642043616e6e6f74204265205a65726f000000)
@@ -138,7 +138,7 @@ contract DMSModule is Ownable, AxiomV2Client {
 
     /// @notice Update dormancy period.
     /// @param _period The new dormany period.
-    function resetDormancyPeriod(uint64 _period) external {
+    function resetDormancyPeriod(uint64 _period) external onlyOwner() {
         dormancyPeriod = _period;
         emit DormancyPeriodUpdated(_period);
     }

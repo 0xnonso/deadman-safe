@@ -260,4 +260,20 @@ contract DMSModuleTest is AxiomTest {
         vm.expectRevert(bytes("Safe Threshold Cannot Be Zero"));
         dms.resetThreshold(0);
     }
+
+    function testSwitchActivated() public {
+        // create a query into Axiom with default parameters
+        Query memory q = query(querySchema, abi.encode(input), address(dms));
+
+        // send the query to Axiom
+        q.send();
+
+        // prank fulfillment of the query
+        q.prankFulfill();
+
+        q.send();
+
+        vm.expectRevert(bytes("Switch already activated"));
+        q.prankFulfill();
+    }
 }
